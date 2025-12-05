@@ -33,7 +33,7 @@ router.post('/resolve', async (req, res) => {
     }
 
     // Build 5 smiley links
-    const base = API_BASE_URL || 'http://localhost:5000';
+    const base = API_BASE_URL || 'https://csat-reviews.onrender.com/';
     const url = (rating) =>
       `${base}/api/csat/email-click?ticketId=${encodeURIComponent(
         ticketId
