@@ -12,15 +12,21 @@ const {
 } = process.env;
 
 // Configure transporter once
-const transporter = nodemailer.createTransport({
-  host: SMTP_HOST,
-  port: Number(SMTP_PORT) || 587,
-  secure: false,
+const transporter = nodemailer.createTransporter({
+  host: process.env.SMTP_HOST,
+  port: Number(process.env.SMTP_PORT) || 465,
+  secure: true,  // true for 465, false for other ports
   auth: {
-    user: SMTP_USER,
-    pass: SMTP_PASS
-  }
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS
+  },
+  pool: true,
+  maxConnections: 1,
+  maxMessages: 10,
+  logger: false  // Reduce Render logs
 });
+
+
 
 // POST /api/tickets/resolve
 // Body: { "ticketId": "T123", "customerEmail": "user@example.com" }
@@ -33,7 +39,7 @@ router.post('/resolve', async (req, res) => {
     }
 
     // Build 5 smiley links
-    const base = API_BASE_URL || 'https://csat-reviews.onrender.com/';
+    const base = API_BASE_URL || 'https://localhost:5000';
     const url = (rating) =>
       `${base}/api/csat/email-click?ticketId=${encodeURIComponent(
         ticketId
