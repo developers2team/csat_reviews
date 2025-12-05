@@ -12,8 +12,13 @@ router.post('/resolve', async (req, res) => {
       return res.status(400).json({ message: 'ticketId and customerEmail required' });
     }
 
-    const base = process.env.API_BASE_URL || 'https://csat-reviews.onrender.com';
-    const url = (rating) => `${base}/api/csat/email-click?ticketId=${encodeURIComponent(ticketId)}&rating=${rating}&email=${encodeURIComponent(customerEmail)}`;
+    // const base = process.env.API_BASE_URL || 'https://csat-reviews.onrender.com';
+    // const url = (rating) => `${base}/api/csat/email-click?ticketId=${encodeURIComponent(ticketId)}&rating=${rating}&email=${encodeURIComponent(customerEmail)}`;
+
+// FIXED URL generation
+const baseUrl = (process.env.API_BASE_URL || 'https://csat-reviews.onrender.com').replace(/\/$/, '');
+const url = (rating) => `${baseUrl}/api/csat/email-click?ticketId=${encodeURIComponent(ticketId)}&rating=${rating}&email=${encodeURIComponent(customerEmail)}`;
+
 
     const msg = {
       to: customerEmail,
