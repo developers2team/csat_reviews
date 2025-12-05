@@ -30,15 +30,24 @@ const url = (rating) => `${baseUrl}/api/csat/email-click?ticketId=${encodeURICom
           <p style="color: #666; font-size: 18px; margin-bottom: 40px;">
             How satisfied were you with our service?
           </p>
-
+          
           <div style="display: flex; gap: 30px; justify-content: center; margin: 40px 0;">
-  <a href="${url(1)}" style="text-decoration: none; font-size: 24px; color: #ff4444; font-weight: bold;">1</a>
-  <a href="${url(2)}" style="text-decoration: none; font-size: 24px; color: #ff8800; font-weight: bold;">2</a>
-  <a href="${url(3)}" style="text-decoration: none; font-size: 24px; color: #888888; font-weight: bold;">3</a>
-  <a href="${url(4)}" style="text-decoration: none; font-size: 24px; color: #44aa44; font-weight: bold;">4</a>
-  <a href="${url(5)}" style="text-decoration: none; font-size: 24px; color: #008800; font-weight: bold;">5</a>
-</div>
-                     
+            <a href="${url(1)}" style="font-size: 40px; color: #ff4444; font-weight: bold; padding: 25px; border-radius: 50%; background: #ffe6e6; text-decoration: none; width: 90px; height: 90px; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 25px rgba(255,68,68,0.4); transition: transform 0.2s;">
+              1
+            </a>
+            <a href="${url(2)}" style="font-size: 40px; color: #ff8800; font-weight: bold; padding: 25px; border-radius: 50%; background: #fff2e6; text-decoration: none; width: 90px; height: 90px; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 25px rgba(255,136,0,0.4); transition: transform 0.2s;">
+              2
+            </a>
+            <a href="${url(3)}" style="font-size: 40px; color: #888; font-weight: bold; padding: 25px; border-radius: 50%; background: #f5f5f5; text-decoration: none; width: 90px; height: 90px; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 25px rgba(136,136,136,0.4); transition: transform 0.2s;">
+              3
+            </a>
+            <a href="${url(4)}" style="font-size: 40px; color: #44aa44; font-weight: bold; padding: 25px; border-radius: 50%; background: #e6f7e6; text-decoration: none; width: 90px; height: 90px; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 25px rgba(68,170,68,0.4); transition: transform 0.2s;">
+              4
+            </a>
+            <a href="${url(5)}" style="font-size: 40px; color: #008800; font-weight: bold; padding: 25px; border-radius: 50%; background: #d4f4d4; text-decoration: none; width: 90px; height: 90px; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 25px rgba(0,136,0,0.4); transition: transform 0.2s;">
+              5
+            </a>
+          </div>
           
           <p style="color: #999; font-size: 14px;">
             Click any number above to share your feedback. Thank you! 🙏
